@@ -13,7 +13,7 @@
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
 <link rel="stylesheet"
-	href="/servlet-examples/assets/bootstrap/sticky-footer-navbar.css" />
+	href="<c:url value='/assets/bootstrap/sticky-footer-navbar.css' />" />
 </head>
 <body class="d-flex flex-column h-100">
 	<header>
