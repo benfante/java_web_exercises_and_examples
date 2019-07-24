@@ -62,7 +62,7 @@ public class HelloServlet extends HttpServlet {
 		Collection<Item> filteredItems = new ArrayList<>();
 		if (filter != null) {
 			for (Item item : items) {
-				if (item.getDescription().contains(filter)) {
+				if (item.getDescription().toLowerCase().contains(filter.toLowerCase())) {
 					filteredItems.add(item);
 				}
 			}

@@ -27,15 +27,15 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active"><a class="nav-link" href="#">Home
+					<li class="nav-item active"><a class="nav-link" href="<c:url value='/hello' />">Items
 							<span class="sr-only">(current)</span>
 					</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
 					<li class="nav-item"><a class="nav-link disabled" href="#"
 						tabindex="-1" aria-disabled="true">Disabled</a></li>
 				</ul>
-				<form class="form-inline mt-2 mt-md-0">
-					<input class="form-control mr-sm-2" type="text"
+				<form class="form-inline mt-2 mt-md-0" action="<c:url value='/hello' />">
+					<input class="form-control mr-sm-2" type="text" name="filter" value="${param.filter}"
 						placeholder="Search" aria-label="Search">
 					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 				</form>
@@ -54,13 +54,14 @@
 			<c:remove var="message" />
 		</c:if>
 
-
+<%--
 		<c:url value="/hello" var="helloUrl" />
 		<form action="${helloUrl}">
 			<label for="filterId">Filtro:</label> <input id="filterId"
 				name="filter" value="${param.filter}" /> <input type="submit"
 				value="Filtra" />
 		</form>
+--%>
 
 		<div>
 			<a href='<c:url value="/item/add"/>'>Add Item</a>
