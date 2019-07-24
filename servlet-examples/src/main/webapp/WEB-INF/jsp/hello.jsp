@@ -6,10 +6,23 @@
 <head>
 <meta charset="UTF-8">
 <title>Hello ${greetingName}!</title>
+<style type="text/css">
+	.success {
+		background-color: green;
+		color: white;
+		border: black solid 2px;
+	}
+</style>
 </head>
 <body>
 	<h1>Hello ${greetingName}!</h1>
 
+	<c:if test="${!empty message}">
+		<div class="success">${message}</div>
+		<c:remove var="message"/>
+	</c:if>
+	
+	
 	<c:url value="/hello" var="helloUrl" />
 	<form action="${helloUrl}">
 		<label for="filterId">Filtro:</label> <input id="filterId"
@@ -17,6 +30,9 @@
 			value="Filtra" />
 	</form>
 
+	<div>
+		<a href='<c:url value="/item/add"/>'>Add Item</a>
+	</div>
 	<c:choose>
 		<c:when test="${!empty items}">
 			<ol>

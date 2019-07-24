@@ -46,7 +46,10 @@ public class ItemManagementServlet extends HttpServlet {
 		String cost = request.getParameter("cost");
 		String priority = request.getParameter("priority");
 
-		if (description == null || "".equals(description)) {
+		Collection<String> errors = validate(description, cost, priority);
+		
+		if (errors.size() > 0) {
+			request.setAttribute("errors", errors);
 			request.getRequestDispatcher("/WEB-INF/jsp/addItem.jsp").forward(request, response);
 		} else {
 
@@ -62,8 +65,34 @@ public class ItemManagementServlet extends HttpServlet {
 			}
 			items.add(item);
 
+			request.getSession().setAttribute("message", "Item inserito correttamente");
+			
 			response.sendRedirect(request.getContextPath() + "/hello");
 		}
+	}
+
+	private Collection<String> validate(String description, String cost, String priority) {
+		Collection<String> result = new ArrayList<>();
+		if (description == null || "".equals(description.trim())) {
+			result.add("Description is mandatory");
+		}
+		if (cost == null || "".equals(cost.trim())) {
+			result.add("Cost is mandatory");
+		}
+		try {
+			new BigDecimal(cost);
+		} catch (NumberFormatException e) {
+			result.add("Wrong format for cost");
+		}
+		if (priority == null || "".equals(priority.trim())) {
+			result.add("Priority is mandatory");
+		}
+		try {
+			Integer.parseInt(priority);
+		} catch (NumberFormatException e) {
+			result.add("Wrong format for priority");
+		}		
+		return result;
 	}
 
 }
