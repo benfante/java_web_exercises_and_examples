@@ -1,6 +1,7 @@
 <%@ tag language="java" pageEncoding="UTF-8"%>
 <%@ attribute name="title" type="java.lang.String" description="The title of the page" rtexprvalue="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <c:if test="${empty title}">
 	<c:choose>
@@ -32,7 +33,11 @@
 			--%>
 			<%@ include file="/WEB-INF/frags/title.jspf" %>
             <div class="main-content-inner">
-                        
+            	<div>&nbsp;</div>
+                <c:if test="${!empty message}">
+                	<div class="alert alert-success"><spring:message code="${message}"/></div>
+                </c:if>
+                
                 <!-- MAIN CONTENT GOES HERE -->
 				<jsp:doBody/>                
             </div>

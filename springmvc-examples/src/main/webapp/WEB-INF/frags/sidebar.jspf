@@ -15,6 +15,7 @@
 					<li><a href="${baseUrl}/examples/jstl/core">JSTL</a></li>
 					<li><a href="${baseUrl}/examples/html_forms">HTML Forms</a></li>
 					<li><a href="${baseUrl}/examples/spring_forms">Spring Forms</a></li>
+					<li><a href="${baseUrl}/items">Items</a></li>
 				</ul>
 			</nav>
 		</div>
