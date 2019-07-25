@@ -1,0 +1,42 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<c:url value="/" var="homeUrl" />
+<c:url value="" var="baseUrl" />
+<!-- page title area start -->
+<div class="page-title-area">
+	<div class="nav-btn pull-left">
+		<span></span> <span></span> <span></span>
+	</div>
+	<div class="row align-items-center">
+		<div class="col-sm-6">
+			<div class="breadcrumbs-area clearfix">
+				<img class="page-title pull-left"
+					src="${baseUrl}/assets/images/icon/Logo GFT.jpg">
+				<h4 class="page-title pull-left">${title}</h4>
+				<ul class="breadcrumbs pull-left">
+					<li><a href="${homeUrl}">Home</a></li>
+					<li><span>${title}</span></li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-sm-6 clearfix">
+			<div class="user-profile pull-right">
+				<h4 class="user-name dropdown-toggle" data-toggle="dropdown">
+					<sec:authorize access="isAuthenticated()">
+    					<sec:authentication property="name"/>
+					</sec:authorize>
+					<i class="fa fa-angle-down"></i>
+				</h4>
+				<div class="dropdown-menu">
+					<sec:authorize access="!isAuthenticated()">
+						<a class="dropdown-item" href="${baseUrl}/login">Log In</a>
+					</sec:authorize>
+					<sec:authorize access="isAuthenticated()">
+						<a class="dropdown-item" href="${baseUrl}/logout">Log Out</a>
+					</sec:authorize>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- page title area end -->

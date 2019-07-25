@@ -1,0 +1,23 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:url value="" var="baseUrl" />
+<!-- sidebar menu area start -->
+<div class="sidebar-menu">
+	<div class="sidebar-header">
+		<div class="logo">
+			<a href="#"><img src="${baseUrl}/assets/images/icon/logo.png"
+				alt="logo"></a>
+		</div>
+	</div>
+	<div class="main-menu">
+		<div class="menu-inner">
+			<nav>
+				<ul class="metismenu" id="menu">
+					<li><a href="${baseUrl}/examples/jstl/core">JSTL</a></li>
+					<li><a href="${baseUrl}/examples/html_forms">HTML Forms</a></li>
+					<li><a href="${baseUrl}/examples/spring_forms">Spring Forms</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<!-- sidebar menu area end -->
