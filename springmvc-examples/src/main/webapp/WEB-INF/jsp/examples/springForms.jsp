@@ -22,7 +22,7 @@
 			</div>
 		</div>
 		<div>
-			<form:label path="age">Age:</form:label>
+			<form:label path="age"><spring:message code="label.age" />:</form:label>
 			<form:input path="age" type="number" />
 		</div>
 		<div>

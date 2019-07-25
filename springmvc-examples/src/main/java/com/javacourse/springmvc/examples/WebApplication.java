@@ -53,7 +53,7 @@ public class WebApplication extends SpringBootServletInitializer implements WebM
 	}
 	
 	public static void main(String[] args) {
-		SpringApplication.run(WebApplication.class, args);
+		SpringApplication.run(new Class[] {WebApplication.class, SecurityConfig.class}, args);
 	}
 
 }
